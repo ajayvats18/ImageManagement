@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <!-- New Image Button -->
+  <div class="mb-3">
+    <button class="btn btn-primary" routerLink="/upload">New</button>
+  </div>
+
+  <!-- Image Cards -->
+  <div class="row">
+    <div *ngFor="let image of images" class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img src="path-to-image" alt="{{ image.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ image.name }}</h5>
+          <p class="card-text">Created: {{ image.userName }}</p>
+          <p class="card-text">Created date: {{ image.createdDate | date }}</p>
+          <p class="card-text">Description: {{ image.description }}</p>
+          <button class="btn btn-secondary" (click)="onEdit(image.id)">Edit</button>
+          <button class="btn btn-danger" (click)="onDelete(image.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
